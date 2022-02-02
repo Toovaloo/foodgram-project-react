@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}Об авторе проекта{% endblock %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/pages/index.css' %}">
+{% endblock css %}
+
+{% block main %}
+    <div class="main__header">
+        <h1 class="main__title">
+            {% block main_title %}Раскрою несколько секретиков о технологиях{% endblock %}
+        </h1>
+    </div>
+    <div>
+        <p class="card__text">
+            Вебсайт <span style="color:red">Food</span>gram написан на 
+            <a class="link" href="https://www.djangoproject.com/">Django</a> — свободном фреймворке для 
+            разработки веб-приложений на языке Python.
+        </p>
+    </div>
+{% endblock main %}

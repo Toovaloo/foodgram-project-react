@@ -1,0 +1,11 @@
+{% load recipes_filters %}
+
+{% if recipe|is_purchased:request.cart %}
+    {% include "includes/buttons/button_inc.html" with class="light-blue-outline" name="purchases" content='<span class="icon-check button__icon"></span> Рецепт добавлен' %}
+{% else %}
+    {% if request.resolver_match.url_name == 'recipe_list' %}
+        {% include "includes/buttons/button_inc.html" with class="light-blue" name="purchases" data_out=True content='<span class="icon-plus button__icon"></span>Добавить в покупки' %}
+    {% else %}
+        {% include "includes/buttons/button_inc.html" with class="blue" name="purchases" data_out=True content='<span class="icon-plus button__icon"></span>Добавить в покупки' %}
+    {% endif %}
+{% endif %}

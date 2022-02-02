@@ -1,0 +1,9 @@
+{% load recipes_filters %}
+
+{% if user.is_authenticated and user != author %}
+    {% if user|is_subscribed:author %}
+        {% include "includes/buttons/button_inc.html" with class="light-blue button_size_subscribe" name="subscribe" content="Отписаться от автора" %}
+    {% else %}
+        {% include "includes/buttons/button_inc.html" with class="light-blue button_size_subscribe" name="subscribe" data_out=True content="Подписаться на автора" %}
+    {% endif %}
+{% endif %}

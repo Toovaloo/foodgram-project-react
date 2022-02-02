@@ -1,0 +1,32 @@
+{% load thumbnail %}
+
+<div class="card-user" data-author="{{ subscription.author.id }}">
+    <div class="card-user__header">
+        <h2 class="card-user__title">{{ subscription.author.get_full_name }}</h2>
+    </div>
+    <div class="card-user__body">
+        <ul class="card-user__items">
+            {% for recipe in subscription.author.recipes.all|slice:":3" %}
+                <li class="card-user__item">
+                    <div class="recipe">
+                        {% thumbnail recipe.image "960x960" crop="center" upscale=True as im %}
+                            <img src="{{ im.url }}" alt="Фото рецепта" class="recipe__image">
+                        {% endthumbnail %}
+                        <h3 class="recipe__title">{{ recipe.name }}</h3>
+                        <p class="recipe__text"><span class="icon-time"></span> {{ recipe.cooking_time }} мин.</p>
+                    </div>
+                </li>
+            {% endfor %}
+            {% if subscription.num_recipes > 0 %}
+                <li class="card-user__item">
+                    <a href="{% url 'recipe_author' username=subscription.author.username %}" class="card-user__link link">
+                        Ещё {{ subscription.num_recipes }} рецепт{% if subscription.num_recipes > 1 and subscription.num_recipes <= 4 %}а{% elif subscription.num_recipes > 4 %}ов{% endif %}...
+                    </a>
+                </li>
+            {% endif %}
+        </ul>
+    </div>
+    <div class="card-user__footer">
+        <button class="button button_style_light-blue button_size_auto" name="subscribe">Отписаться</button>
+    </div>
+</div>

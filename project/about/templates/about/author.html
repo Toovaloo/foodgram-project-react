@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}Об авторе проекта{% endblock %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/pages/index.css' %}">
+{% endblock css %}
+
+{% block main %}
+    <div>
+        <p class="card__text">Простой парень, работящий, вот <a class="link" href="https://github.com/Khels">ссылка</a> на GitHub.</p>
+        <img src="{% static 'img/Megumi.jpg' %}" alt="My goddess">
+    </div>
+{% endblock main %}

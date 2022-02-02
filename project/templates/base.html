@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>
+      {% block title %}{% endblock %} | Foodgram
+    </title>
+    {% block css %}{% endblock %}
+  </head>
+  <body class="body">
+    <header class="header">
+      {% block header %}
+          {% include "includes/navbar.html" %}
+      {% endblock header %}
+    </header>
+    <main class="main container">
+      {% block main %}
+        <div class="main__header">
+          <h1 class="main__title">{% block main_title %}{% endblock %}</h1>
+          {% block tags %}{% endblock %}
+        </div>
+          {% block subscribe_button %}{% endblock %}
+        <div class="card-list">
+          {% block content %}{% endblock %}
+        </div>
+        {% block paginator %}{% endblock %}
+      {% endblock %}
+    </main>
+    {% include 'includes/footer.html' %}
+    {% block js %}{% endblock %}
+  </body>
+</html>
