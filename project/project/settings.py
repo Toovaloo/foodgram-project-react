@@ -12,7 +12,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY', default=True)
 
 DEBUG = False
 
-ALLOWED_HOSTS = ['62.84.124.60', 'backend', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['84.252.131.64', 'backend', 'localhost', '127.0.0.1']
 
 INSTALLED_APPS = [
     'accounts',
